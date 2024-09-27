@@ -1,4 +1,13 @@
-# Dockerfile
+# Use the official NGINX image as the base image
 FROM nginx:latest
 
-COPY ./html /usr/share/nginx/html
+# Copy custom HTML content to serve (if you have any)
+# Replace 'index.html' with your actual file if necessary
+COPY ./index.html /usr/share/nginx/html/
+
+# Expose port 80 to the outside
+EXPOSE 80
+
+# Start NGINX when the container launches
+CMD ["nginx", "-g", "daemon off;"]
+
